@@ -1,0 +1,16 @@
+[
+{
+  "modid": "neteaseantiaddictionguifix",
+  "name": "NeteaseAntiAddictionGuiFix",
+  "description": "Fix some mods that the gui will be gray in Minecraft Netease Edition.",
+  "version": "${version}",
+  "mcversion": "[1.8,)",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["ZekerZhayard"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
