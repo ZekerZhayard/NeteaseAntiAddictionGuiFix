@@ -4,7 +4,7 @@
 ## 相关截图
 
 - 安装此模组前  
-<img alt="Before.png" src="/ZekerZhayard/NeteaseAntiAddictionGuiFix/blob/master/Before.png?raw=true">
+<img alt="Before.png" src="https://github.com/ZekerZhayard/NeteaseAntiAddictionGuiFix/blob/master/Before.png?raw=true">
 
 - 安装此模组后  
-<img alt="After.png" src="/ZekerZhayard/NeteaseAntiAddictionGuiFix/blob/master/After.png?raw=true">
+<img alt="After.png" src="https://github.com/ZekerZhayard/NeteaseAntiAddictionGuiFix/blob/master/After.png?raw=true">
