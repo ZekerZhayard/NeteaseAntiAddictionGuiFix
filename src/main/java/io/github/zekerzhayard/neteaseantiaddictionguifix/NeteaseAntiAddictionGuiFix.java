@@ -16,9 +16,9 @@ import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 
-@Mod(modid = "neteaseantiaddictionguifix", name = "NeteaseAntiAddictionGuiFix", version = "@version@", clientSideOnly = true, dependencies = "after:antimod;", acceptedMinecraftVersions = "[1.8,1.12.2]")
+@Mod(modid = "neteaseantiaddictionguifix", name = "NeteaseAntiAddictionGuiFix", version = "@version@", clientSideOnly = true, dependencies = "after:antimod;", acceptedMinecraftVersions = "[1.8,1.12.2]", updateJSON = "https://raw.githubusercontent.com/ZekerZhayard/NeteaseAntiAddictionGuiFix/master/update.json")
 public class NeteaseAntiAddictionGuiFix {
-	private AntiAddictionEventHandlerClient aaehc;
+	private Object aaehc;
 	
 	@Mod.EventHandler()
 	@Optional.Method(modid = "antimod")
@@ -26,7 +26,7 @@ public class NeteaseAntiAddictionGuiFix {
 	public void init(FMLInitializationEvent event) throws IllegalAccessException {
 		for (Object o : ((Map<Object, ModContainer>) FieldUtils.readDeclaredField(MinecraftForge.EVENT_BUS, "listenerOwners", true)).keySet()) {
 			if (o instanceof AntiAddictionEventHandlerClient) {
-				this.aaehc = (AntiAddictionEventHandlerClient) o;
+				this.aaehc = o;
 				MinecraftForge.EVENT_BUS.unregister(o);
 				MinecraftForge.EVENT_BUS.register(this);
 				break;
@@ -36,16 +36,16 @@ public class NeteaseAntiAddictionGuiFix {
 	
 	@SubscribeEvent()
 	public void onClientChatReceivedEvent(ClientChatReceivedEvent event) {
-		this.aaehc.ChatMessageReceiveEvent(event);
+		((AntiAddictionEventHandlerClient) this.aaehc).ChatMessageReceiveEvent(event);
 	}
 	
 	@SubscribeEvent()
 	public void onClientTickEvent(TickEvent.ClientTickEvent event) {
-		this.aaehc.onClientTickEvent(event);
+		((AntiAddictionEventHandlerClient) this.aaehc).onClientTickEvent(event);
 	}
 	
 	@SubscribeEvent(priority = EventPriority.LOWEST)
 	public void onRenderTickEvent(TickEvent.RenderTickEvent event) {
-		this.aaehc.onRenderTickEvent(event);
+		((AntiAddictionEventHandlerClient) this.aaehc).onRenderTickEvent(event);
 	}
 }
